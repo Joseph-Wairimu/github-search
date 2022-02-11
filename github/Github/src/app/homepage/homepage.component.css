@@ -1,4 +1,9 @@
 .cards{width: 50%;
-justify-content: center;
+align-items: center;
 
+}
+.all{
+    background-color: #EAEAEA;
+    height: 60rem;
+    
 }
