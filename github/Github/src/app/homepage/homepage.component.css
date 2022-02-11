@@ -1,9 +1,12 @@
 .cards{width: 50%;
 align-items: center;
-
 }
 .all{
     background-color: #EAEAEA;
     height: 60rem;
     
+}
+.row{
+    margin-top: 2rem;
+    justify-content: space-between;
 }
