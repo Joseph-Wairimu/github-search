@@ -15,3 +15,7 @@ align-items: center;
     width: 10rem;
     border-radius: 25px;
 }
+.repo{
+    margin-top: 2rem;
+    color: #9A0680;
+}
