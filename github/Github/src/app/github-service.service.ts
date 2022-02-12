@@ -7,10 +7,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class GithubServiceService {
-  userDetails: User;
+  userReceivedDetails: User;
 
   constructor(private http: HttpClient) {
-    this.userDetails = new User(
+    this.userReceivedDetails = new User(
       '',
       '',
       '',
@@ -24,4 +24,26 @@ export class GithubServiceService {
       ''
     );
 }
+getUserRequest(githubUsername) {
+  interface ApiUserResponse {
+    name: string;
+    login: string;
+    avatar_url: string;
+    blog: string;
+    public_repos: number;
+    html_url: string;
+    location: string;
+    bio: string;
+    twitter_username: string;
+    _repos: number;
+    followers: number;
+    following: number;
+    created_at: Date;
+    company?: string;
+  }
+
+
+
+
+
 }
