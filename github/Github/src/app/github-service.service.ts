@@ -2,48 +2,38 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import {  HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class GithubServiceService {
-  userReceivedDetails: User;
+export class  GithubServiceService{
 
-  constructor(private http: HttpClient) {
-    this.userReceivedDetails = new User(
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      0,
-      0,
-      0,
-      new Date(),
-      ''
-    );
-}
-getUserRequest(githubUsername) {
-  interface ApiUserResponse {
-    name: string;
-    login: string;
-    avatar_url: string;
-    blog: string;
-    public_repos: number;
-    html_url: string;
-    location: string;
-    bio: string;
-    twitter_username: string;
-    _repos: number;
-    followers: number;
-    following: number;
-    created_at: Date;
-    company?: string;
+  private username:string;
+  private personalToken='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';
+
+  constructor( private http:HttpClient) { 
+    console.log("Service working as expected");
+    this.username="Joseph-Wairimu";
+    
   }
 
 
-
-
-
+  getUsersDetails() {
+    return this.http.get('https://api.github.com/users/' + this.username + "?client_id=" + this.personalToken).pipe(map((res: any) => {
+      return res;
+    }));
+       
 }
+  getProfileRepositories(){
+    return this.http.get('https://api.github.com/users/'+this.username + "/repos?client_id=" + this.personalToken)
+  .pipe(map((res: any) => { 
+      return res
+  }));
+  }
+  updateUsersDetails(username:string){
+    this.username=username;
+  }
+}
+
