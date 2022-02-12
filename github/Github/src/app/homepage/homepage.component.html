@@ -8,7 +8,7 @@
                 <img [src]="usersDetails?.avatar_url" class="card-img-top image" alt="profile picture">
                 <div class="card-body">
                     <h4 class="card-text">{{usersDetails.login}}</h4>
-                    <p>{{usersDetails.created_at}}</p>
+                    <p>{{usersDetails.created_at|date}}</p>
                     <h1>{{usersDetails.followers}}</h1>
                     <h1>{{usersDetails.following}}</h1>
                     <h6>joining</h6>
