@@ -8,9 +8,9 @@
                 <img [src]="usersDetails?.avatar_url" class="card-img-top image" alt="profile picture">
                 <div class="card-body">
                     <h4 class="card-text">{{usersDetails.login}}</h4>
-                    <p>{{usersDetails.created_at|date}}</p>
-                    <p>Followers:{{usersDetails.followers}}</p>
-                    <p>Following:{{usersDetails.following}}</p>
+                    <p>Joined on: {{usersDetails.created_at|date}}</p>
+                    <p class="bi bi-person-circle">Followers: {{usersDetails.followers}}</p>
+                    <p class="bi bi-person-circle">Following: {{usersDetails.following}}</p>
     
                 </div>
             </div>
