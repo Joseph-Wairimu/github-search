@@ -1,20 +1,33 @@
-<div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 mt-5">
-      <div>
-        <form  id="search-form" #f="ngForm">
-          <input type="text" class="form-control search" ngModel name=""
-            placeholder="Enter github username to search user repository........" required #search="ngModel">
-          <p class="text-danger error-block" *ngIf="!search.valid && search.touched"><small>Fill in field!</small></p>
-          <div class="d-grid mt-2">
-            <button type="submit" class="btn btn-block btn-search" [disabled]="!f.valid">
-              Search Repository <i class="fa fa-arrow-right"></i>
-            </button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-    <div class="col-md-4"></div>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">{{usersDetails.login}}</a>
+    <form class="d-flex" (ngSubmit)="findUser()">
+      <input class="form-control me-2" placeholder="Search Github Username" [(ngModel)]="searchUser" name="searchUser">
+      <button class="btn btn-outline-success" type="submit">Search </button>
+    </form>
   </div>
+</nav>
 
+<div *ngIf="usersDetails">
+  <div class="panel panel-default">
+  
+    <div class="col-sm-12">
+      <hr>
+      <div class="jumbotron">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h3 class="text-center">{{usersDetails.name}} Repositories</h3>
+            </div>
+            <div class="panel-body" *ngFor="let repository of repository">
+              <p class="list-group-item repos ">
+                {{repository.name}} <a href="{{repository.html_url}}" target="_blank">View thisProject</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
