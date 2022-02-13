@@ -11,6 +11,7 @@ import { SearchRepositoryComponent } from './search-repository/search-repository
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { ColorChangePipe } from './color-change.pipe';
+import { ColorHoverDirective } from './color-hover.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ColorChangePipe } from './color-change.pipe';
     SearchUserComponent,
     SearchRepositoryComponent,
     NotFoundComponent,
-    ColorChangePipe
+    ColorChangePipe,
+    ColorHoverDirective
   ],
   imports: [
     BrowserModule,
