@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubServiceService } from '../github-service.service';
+import { ColorHoverDirective } from '../color-hover.directive';
 @Component({
   selector: 'app-search-repository',
   templateUrl: './search-repository.component.html',
