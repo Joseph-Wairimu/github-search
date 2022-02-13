@@ -10,6 +10,7 @@ import { SearchUserComponent } from './search-user/search-user.component';
 import { SearchRepositoryComponent } from './search-repository/search-repository.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
+import { ColorChangePipe } from './color-change.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     SearchUserComponent,
     SearchRepositoryComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ColorChangePipe
   ],
   imports: [
     BrowserModule,

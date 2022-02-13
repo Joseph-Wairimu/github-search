@@ -11,30 +11,13 @@ import { Repository } from './repository';
 export class  GithubServiceService{
 
   private username:string;
-  // userReceivedDetails: User;
-  // userRepositories: Repository;
+  
   constructor( private http:HttpClient) { 
     console.log("Service working as expected");
     this.username="Joseph-Wairimu";
-    // this.userReceivedDetails = new User(
-    //         '',
-    //         '',
-    //         '',
-    //         '',
-    //         '',
-    //         '',
-    //         0,
-    //         0,
-    //         0,
-    //         new Date(),
-    //         ''
-    //       );
-    //       this.userRepositories = new Repository('', '', '', new Date(), '');
+
   }
  
-
-  
-
   getUsersDetails() {
     return this.http.get('https://api.github.com/users/' + this.username + "?client_id=" +environment.USER_URL).pipe(map((res: any) => {
       return res;
