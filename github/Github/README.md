@@ -1,11 +1,14 @@
 # IP Github
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4..
 
 #### Date, 13/02/2022
 
 ### By Joseph Kamore Wairimu
 
+## Description
+
+This site allows a user to search people's username on github using github API and also searches for users repositories.
 
 ## Development server
 
