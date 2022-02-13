@@ -6,11 +6,11 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: ' Homepage', component:  HomepageComponent },
+  // { path: ' Homepage', component:  HomepageComponent },
   { path: 'Search-User', component: SearchUserComponent },
   { path: 'Search-Repository', component:  SearchRepositoryComponent},
   { path:'**', component:NotFoundComponent},
-  // { path: '', redirectTo:"/Homepage", pathMatch:"full"},
+  { path: '', redirectTo:"/Homepage", pathMatch:"full"},
   // { path: '', component: HomepageComponent },
 ];
 @NgModule({

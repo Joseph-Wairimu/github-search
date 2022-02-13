@@ -1,19 +1,77 @@
-<div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 mt-5">
-      <div>
-        <form  id="search-form" #f="ngForm">
-          <input type="text" class="form-control search" ngModel name=""
-            placeholder="Enter github username to search........" required #search="ngModel">
-          <p class="text-danger error-block" *ngIf="!search.valid && search.touched"><small>Fill in field!</small></p>
-          <div class="d-grid mt-2">
-            <button type="submit" class="btn btn-block btn-search" [disabled]="!f.valid">
-              Search User <i class="fa fa-arrow-right"></i>
-            </button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-    <div class="col-md-4"></div>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">{{usersDetails.login}}</a>
+    <form class="d-flex" (ngSubmit)="findUser()">
+      <input class="form-control me-2" placeholder="Search Github Username" [(ngModel)]="searchUser" name="searchUser">
+      <button class="btn btn-outline-success" type="submit">Search </button>
+    </form>
   </div>
+</nav>
+
+<div *ngIf="usersDetails">
+  <div class="panel panel-default">
+    <div class="jumbotron text-center text-light mt-4">
+      <div class="panel heading bio">
+        Your full name is : {{usersDetails.name}} , <br>
+        Your Git Hub name is <small>{{usersDetails.login}}</small>
+        <br> was created on : <span *ngIf="usersDetails.created_at">{{usersDetails.created_at}}</span>
+        <br>
+        Location: {{usersDetails.location}}
+
+      </div>
+    </div>
+    <hr>
+    <div class="jumbotron">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-5 jumbotron col-lg-6 col-md-12 col-sm-12">
+            <img src="{{usersDetails.avatar_url}}" width="100%" alt="Users image" class="img-circle img-responsive">
+          </div>
+          <div class="col-sm-5 col-lg-6 col-md-12 col-sm-12 mt-3">
+            <ul class="list-group bg-secondary text-light">
+              <p class="text-light text-center mt-2"> A brief Bio about {{usersDetails.name}}</p>
+              <li class="list-group-item bg-secondary text-light" *ngIf="usersDetails.bio">{{usersDetails.bio}}</li><br>
+              <hr>
+              <li class="list-group-item mt-3" *ngIf="usersDetails.hireable">{{usersDetails.hireable}}</li><br>
+              <li class="list-group-item mt-3" *ngIf="usersDetails.blog"><a href="{{usersDetails.blog}}"
+                  target="_blank">{{usersDetails.blog}}</a></li><br>
+              <li class="list-group-item mt-3" *ngIf="usersDetails.email"><a href="emailto:{{usersDetails.email}}"
+                  target="_blank">{{usersDetails.email}}</a></li>
+            </ul>
+            <div class="mt-5">
+              <p>
+                <span class="btn btn-outline-danger list-group-item mt-3">{{usersDetails.followers}} followers</span>
+                <span class=" btn btn-outline-dark label label-primary list-group-item mt-3">{{usersDetails.following}}
+                  followings</span>
+                <span class=" btn btn-warning label label-success list-group-item mt-3">{{usersDetails.public_gists}}
+                  Pulic_gists</span>
+                <span class=" btn btn-success label label-danger list-group-item mt-3">{{usersDetails.public_repos}}
+                  public_Repos</span>
+              </p>
+              <p><a href="{{usersDetails.html_url}}" target="_blank" class="btn btn-success btn-small">View
+                  {{usersDetails.name}} profile on github?</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <hr>
+      <div class="jumbotron">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h3 class="text-center text-light">{{usersDetails.name}} Repositories</h3>
+            </div>
+            <div class="panel-body" *ngFor="let repository of repository">
+              <p class="list-group-item repos ">
+                {{repository.name}} <a href="{{repository.html_url}}" target="_blank">View thisProject</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
