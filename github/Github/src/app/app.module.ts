@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { ColorChangePipe } from './color-change.pipe';
 import { ColorHoverDirective } from './color-hover.directive';
+import { DateCountPipe } from './date-count.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ColorHoverDirective } from './color-hover.directive';
     SearchRepositoryComponent,
     NotFoundComponent,
     ColorChangePipe,
-    ColorHoverDirective
+    ColorHoverDirective,
+    DateCountPipe
   ],
   imports: [
     BrowserModule,
